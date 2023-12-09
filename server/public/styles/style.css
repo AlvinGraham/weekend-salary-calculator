@@ -8,3 +8,28 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+form {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid red;
+  
+}
+
+input {
+  margin-right: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#submitButton {
+  background-color: darkgrey;
+  border: 2px solid red;
+  font-weight: bold;
+  display: block;
+  width: 20em;
+  margin: 10px auto;
+}
+
+.sectionHeader {
+  margin-bottom: .25em;
+  
+}

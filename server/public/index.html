@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles/style.css">
-  <script src="scripts/client.js"></script>
+  <script src="scripts/script.js" defer></script>
   <title>Mordor Salary Calculator</title>
 </head>
 
@@ -13,8 +13,23 @@
     <h1>Salary Calculator</h1>
   </header>
   <main>
-    <h2>Add Employee</h2>
-    <h2>Employees</h2>
+    <h2 class="sectionHeader">Add Employee</h2>
+    <form id="employeeForm">
+      <label for="firstName">First Name:</label>
+      <input data-testid="firstNameInput" type="text" id="firstName" name="firstName" placeholder="First Name">
+      <label for="lastName">Last Name:</label>
+      <input data-testid="lastNameInput" type="text" id="lastName" name="lastName" placeholder="Last Name">
+      <label for="idInput">ID #:</label>
+      <input data-testid="idInput" type="text" id="idInput" name="idInput" placeholder="ID#">
+      <br><br>
+      <label for="title">Title:</label>
+      <input data-testid="titleInput" type="text" id="title" name="title" placeholder="Grunt">
+      <label for="annualSalary">Salary:</label>
+      <input data-testid="annualSalaryInput" type="number" id="annualSalary" name="annualSalary" placeholder="10000">
+      <br><br>
+      <button data-testid="submitButton" id="submitButton" onClick="submitBtnClk(event)">Submit New Employee</button>
+    </form>
+    <h2 class="sectionHeader">Employees</h2>
   </main>
   <footer>
     <p>Total Monthly</p>

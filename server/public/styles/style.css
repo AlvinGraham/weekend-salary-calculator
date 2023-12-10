@@ -9,7 +9,7 @@ body {
   background-size: cover;
 }
 
-form {
+form, table {
   background-color: rgba(0, 0, 0, 0.4);
   border: 2px solid red;
   
@@ -20,6 +20,15 @@ input {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+table {
+  width: 100%;
+}
+th, td {
+  width: 16%;
+  border: 2px solid red;
+  text-align: left;
+}
+
 #submitButton {
   background-color: darkgrey;
   border: 2px solid red;
@@ -27,6 +36,16 @@ input {
   display: block;
   width: 20em;
   margin: 10px auto;
+}
+
+.deleteBtn {
+  background-color: darkgrey;
+  border: 2px solid red;
+  font-weight: bold;
+  display: block;
+  width: 5em;
+  margin: 10px auto;
+
 }
 
 .sectionHeader {

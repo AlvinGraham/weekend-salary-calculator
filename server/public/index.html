@@ -15,6 +15,7 @@
   <main>
     <h2 class="sectionHeader">Add Employee</h2>
     <form id="employeeForm">
+      <br>
       <label for="firstName">First Name:</label>
       <input data-testid="firstNameInput" type="text" id="firstName" name="firstName" placeholder="First Name">
       <label for="lastName">Last Name:</label>
@@ -30,6 +31,28 @@
       <button data-testid="submitButton" id="submitButton" onClick="submitBtnClk(event)">Submit New Employee</button>
     </form>
     <h2 class="sectionHeader">Employees</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Annual Salary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Annatar</td>
+          <td>Sauron</td>
+          <td>1</td>
+          <td>Dark Lord</td>
+          <td>$0</td>
+          <td><button class="deleteBtn" onclick="deleteRowBtn(event)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
   </main>
   <footer>
     <p>Total Monthly</p>

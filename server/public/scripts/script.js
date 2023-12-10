@@ -20,9 +20,9 @@ function submitBtnClk(event) {
   
   // ADD Validation CODE HERE (Unique ID and required fields)
     // ensure ID and salary (required fields) are populated
-    if (!id || !salary) {
+    if (!id || !salary || (salary < 0)) {
       document.querySelector('#userMessage').innerHTML =
-      `ID and Salary are required fields.Try again!!!`;
+      `ID and positive Salary are required fields. Try again!!!`;
       document.querySelector('form').reset();
       return;
     }
@@ -51,7 +51,7 @@ function submitBtnClk(event) {
           <td id="empLastName">${lastName}</td>
           <td id="empID">${id}</td>
           <td id="empTitle">${title}</td>
-          <td id="empSalary">$ ${salary.toFixed(2)}</td>
+          <td id="empSalary">$ ${toCurrency(salary)}</td>
           <td><button class="deleteBtn" onclick="deleteRowBtn(event)">Delete</button></td>
         </tr>`;
         // update user message
@@ -115,7 +115,7 @@ function updateTotalSalary() {
     footerEle.classList.add('over-budget');        
     }
   
-  document.querySelector("#monthlyCost").innerHTML = `$ ${monthlySalary.toFixed(2)}`;
+  document.querySelector("#monthlyCost").innerHTML = `$ ${toCurrency(monthlySalary)}`;
    
   
   return;
@@ -131,4 +131,27 @@ function isUnique (id) {
   }  
 
   return true;
+}
+
+function toCurrency (number) {
+  let result;
+  
+  // convert to 2 point decimal
+  result = number.toFixed(2);
+  console.log('Number to fixed value: ', result);
+
+  // separte decimal from whole
+  let decimal = result.slice(result.lastIndexOf('.'));
+  console.log('decimal', decimal);
+  let whole = result.slice(0, result.indexOf('.'));
+  console.log('whole', whole);
+
+  // format whole with commas
+  whole = parseInt(whole).toLocaleString();
+  // console.log('with locale string', whole);
+  
+  // recombine components
+  result = `${whole}${decimal}`;
+
+  return result;
 }

@@ -10,7 +10,8 @@
 
 <body>
   <header>
-    <h1>Salary Calculator</h1>
+    <h1>Ring Finders Inc, Salary Calculator</h1>
+    <p>Ring Finders is a for profit enterprise determined to find and return the "One Ring" to the Dark Lord Sauron<p>
   </header>
   <main>
     <h2 class="sectionHeader">Add Employee</h2>
@@ -29,6 +30,8 @@
       <input data-testid="annualSalaryInput" type="number" id="annualSalary" name="annualSalary" placeholder="10000">
       <br><br>
       <button data-testid="submitButton" id="submitButton" onClick="submitBtnClk(event)">Submit New Employee</button>
+      <h3 id="userMessage">Please enter new employee data</h3>
+      <br>
     </form>
     <h2 class="sectionHeader">Employees</h2>
     <table>
@@ -42,20 +45,21 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="empTableBody">
         <tr>
-          <td>Annatar</td>
-          <td>Sauron</td>
-          <td>1</td>
-          <td>Dark Lord</td>
-          <td>$0</td>
+          <td id="empFirstName">Annatar</td>
+          <td id="empLastName">Sauron</td>
+          <td id="empID">1</td>
+          <td id="empTitle">Dark Lord</td>
+          <td id="empSalary">$ 0.00</td>
           <td><button class="deleteBtn" onclick="deleteRowBtn(event)">Delete</button></td>
         </tr>
       </tbody>
     </table>
   </main>
   <footer>
-    <p>Total Monthly</p>
+    <p>Total Monthly Cost: <span id="monthlyCost">$0</span></p>
+    <h3>Over Cost Budget! Terminate an employee immediately!!!</h3>
   </footer>
 </body>
 </html>

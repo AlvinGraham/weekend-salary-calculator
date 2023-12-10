@@ -3,6 +3,24 @@
   background-color: transparent;
 }
 
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+header p {
+color: gold;
+text-align: center;
+font-size: 1em;
+margin: 0 0;
+}
+
+p {
+  text-align: right;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
 body {
   background-image: url(../img/LoTRI.jpeg);
   background-repeat: no-repeat;
@@ -23,10 +41,17 @@ input {
 table {
   width: 100%;
 }
+
 th, td {
   width: 16%;
   border: 2px solid red;
   text-align: left;
+}
+
+#userMessage {
+  width: 30em;
+  margin: 0 auto;
+  text-align: center;
 }
 
 #submitButton {
@@ -51,4 +76,26 @@ th, td {
 .sectionHeader {
   margin-bottom: .25em;
   
+}
+
+.over-budget span {
+  background-color: red;
+  color: gold;
+}
+
+/* .over-budget p {
+  background-color: red;
+  color: gold;
+} */
+ footer h3 {
+  color: transparent;
+  width: 30em;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.over-budget h3 {
+  color: gold;
+  background-color: rgba(255, 0, 0, 0.5);
 }

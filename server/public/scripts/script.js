@@ -5,8 +5,8 @@ const employees = [{id: '1', salary: 0}];
 let totalSalary = 0;
 const maxMonthlySalary = 20000;
 
-console.log('employees', employees);
-console.log('totalSalary', totalSalary);
+// console.log('employees', employees);
+// console.log('totalSalary', totalSalary);
 
 function submitBtnClk(event) {
   event.preventDefault();
@@ -19,12 +19,28 @@ function submitBtnClk(event) {
   let salary = parseInt(document.querySelector("#annualSalary").value);
   
   // ADD Validation CODE HERE (Unique ID and required fields)
+    // ensure ID and salary (required fields) are populated
+    if (!id || !salary) {
+      document.querySelector('#userMessage').innerHTML =
+      `ID and Salary are required fields.Try again!!!`;
+      document.querySelector('form').reset();
+      return;
+    }
+
+    // ensure ID is unique
+    if (!isUnique(id)){
+      document.querySelector('#userMessage').innerHTML =
+      `ID entry must be unique. Try again!!!`;
+      document.querySelector('form').reset();
+      return;
+    }
 
   // Update Global Variables
   employees.push({id: id, salary: salary});
-  console.log('new employees', employees);
+  console.log('employees Array Updated:', employees)
+
   updateTotalSalary();
-  console.log('new totalSalary', totalSalary);
+  // console.log('new totalSalary', totalSalary);
 
   // Update DOM / add row to table
   let tableBodyEle = document.querySelector("#empTableBody");
@@ -38,7 +54,8 @@ function submitBtnClk(event) {
           <td id="empSalary">$ ${salary.toFixed(2)}</td>
           <td><button class="deleteBtn" onclick="deleteRowBtn(event)">Delete</button></td>
         </tr>`;
-  document.querySelector('#userMessage').innerHTML =
+        // update user message
+        document.querySelector('#userMessage').innerHTML =
    `New Employee ID ${id} added.  Ready for next entry...`;
   
    document.querySelector('form').reset();
@@ -48,9 +65,9 @@ function submitBtnClk(event) {
 }
 
 function deleteRowBtn(event) {
-  console.log('Delete row');
-  console.log(event.target);
-  console.log(event.target.parentElement.parentElement)
+  console.log('deleteRowBtn(event) called', event);
+  console.log('Event Target', event.target);
+  console.log('Targeted row', event.target.parentElement.parentElement)
   
   // update global variables
     //update employees array
@@ -73,7 +90,7 @@ function deleteRowBtn(event) {
   
     //update user message
     document.querySelector('#userMessage').innerHTML =
-    `Employee ID ${currentID} terminated.  Ready for next entry...`;
+    `Employee ID ${currentID} terminated with prejudice.  Ready for next entry...`;
     
     // remove row from DOM
   event.target.parentElement.parentElement.remove();
@@ -85,13 +102,16 @@ function updateTotalSalary() {
     totalSalary += item.salary;
   }
 
-  console.log('New Total salary (from update)', totalSalary);
+  console.log('updateTotalSalary() called. New totalSalary:', totalSalary);
   // update DOM
   let monthlySalary = totalSalary / 12;
   let footerEle = document.querySelector('footer')
   // console.log(footerEle);
+  
+  // check for over-budeget state
   footerEle.classList.remove('over-budget'); // Clear Overbudget Status
   if (monthlySalary > maxMonthlySalary) {    // Update Overbudget Status
+    console.log('Applying styles due to over-budget state');
     footerEle.classList.add('over-budget');        
     }
   
@@ -99,4 +119,16 @@ function updateTotalSalary() {
    
   
   return;
+}
+
+function isUnique (id) {
+  console.log('isUnique() called')
+ 
+  for (let counter = 0; counter < employees.length; counter++) {
+    if (id === employees[counter].id) {
+      return false;
+    }
+  }  
+
+  return true;
 }

@@ -51,6 +51,31 @@ function deleteRowBtn(event) {
   console.log('Delete row');
   console.log(event.target);
   console.log(event.target.parentElement.parentElement)
+  
+  // update global variables
+    //update employees array
+    let currentID = event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML;
+    console.log('currentID', currentID);
+    let employeeIndex = 0;
+    for (let counter = 0; counter < employees.length; counter++) {
+      console.log('counter', counter);
+      console.log('currentID', currentID, 'employees id prop', employees[counter].id);
+      if (currentID === employees[counter].id) {
+        employeeIndex = counter;
+        break;
+      }
+    }
+    employees.splice(employeeIndex, 1);
+    console.log('New employees', employees); 
+
+    //update Total Salary
+    updateTotalSalary();
+  
+    //update user message
+    document.querySelector('#userMessage').innerHTML =
+    `Employee ID ${currentID} terminated.  Ready for next entry...`;
+    
+    // remove row from DOM
   event.target.parentElement.parentElement.remove();
 }
 
@@ -67,8 +92,7 @@ function updateTotalSalary() {
   // console.log(footerEle);
   footerEle.classList.remove('over-budget'); // Clear Overbudget Status
   if (monthlySalary > maxMonthlySalary) {    // Update Overbudget Status
-    footerEle.classList.add('over-budget');  
-      
+    footerEle.classList.add('over-budget');        
     }
   
   document.querySelector("#monthlyCost").innerHTML = `$ ${monthlySalary.toFixed(2)}`;

@@ -185,7 +185,7 @@ describe(`Weekend Salary Calculator:`, () => {
     secondRowsButton.click()
 
     // Expect the second row to have been deleted:
-    expect(queryByText(table, /Coco/)).not.toBeInTheDocument()
+    expect(queryByText(container.querySelector('table'), /Coco/)).not.toBeInTheDocument()
     expect(queryByText(table, /Gauff/)).not.toBeInTheDocument()
     expect(queryByText(table, /20202/)).not.toBeInTheDocument()
     expect(queryByText(table, /Professional Tennis Player/)).not.toBeInTheDocument()

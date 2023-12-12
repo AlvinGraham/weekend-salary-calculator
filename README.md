@@ -10,7 +10,7 @@ This project is a solution to the Prime Digital Academy weekend challenge of the
 
 To achieve the stretch goal of adjusting the monthly total after removing an employee, I implemented a global array of employee objects keying on the ID (guaranteed to be unique) and salary.  That way whenever an employee was added or removed, an updated salary could be quickly computed at will from the existing array of employees.
 
-The styling of the interface is heavily influenced by a J.R.R. Tolien motif from the bad guys side.
+The styling of the interface is heavily influenced by a J.R.R. Tolkien motif from the bad guys side.
 
 
 ## Screen Shot
@@ -41,7 +41,7 @@ How does someone use this application? Tell a user story here.
   - Salary is a required positive number field and is enforced
   - Click the `Submit New Employee` button and a new record will appear in the table
 2. To remove an employee
-  - Click the delete button in the relevant table row and the employee will be removed
+  - Click the `delete` button in the relevant table row and the employee will be removed
 3. Total Monthly cost appears beneath the Employees table
   - This value automatically adjusts whenever an employee is removed or added
   - A warning will display if the monthly cost exceeds the budget of $20,000.00
